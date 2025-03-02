@@ -23,7 +23,7 @@ func (c *CLI) customUsage() {
 	fmt.Fprintf(flag.CommandLine.Output(), "Commands:\n")
 	fmt.Fprintf(flag.CommandLine.Output(), "  s, sender       Use sender mode\n")
 	fmt.Fprintf(flag.CommandLine.Output(), "  r, receiver     Use receiver mode\n")
-	fmt.Fprintf(flag.CommandLine.Output(), "  m, middleware   Use middleware mode\n")
+	fmt.Fprintf(flag.CommandLine.Output(), "  c, connector    Use connector mode\n")
 	fmt.Fprintf(flag.CommandLine.Output(), "\n")
 	fmt.Fprintf(flag.CommandLine.Output(), "Options:\n")
 	fmt.Fprintf(flag.CommandLine.Output(), "  [host]\n")

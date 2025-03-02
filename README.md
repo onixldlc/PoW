@@ -1,12 +1,12 @@
 # PoW (Packet Over WebSocket)
 
-This project is a Go CLI application that facilitates communication over WebSocket using a proxy architecture. It allows users to send and receive messages through a middleware layer.
+This project is a Go CLI application that facilitates communication over WebSocket using a proxy architecture. It allows users to send and receive messages through a connector layer.
 
 ## Features
 
-- **Sender**: Sends packet to the middleware.
-- **Receiver**: Listens for incoming messages from a middleware.
-- **Middleware**: Acts as a connector between the sender and receiver, processing messages as needed.
+- **Sender**: Sends packet to the connector.
+- **Receiver**: Listens for incoming messages from a connector.
+- **Connector**: Acts as a connector between the sender and receiver, processing messages as needed.
 
 ## Installation
 
@@ -29,7 +29,7 @@ You can run the CLI program with the following commands:
 
 - `sender` or `s`: Run the sender functionality.
 - `receiver` or `r`: Run the receiver functionality.
-- `middleware` or `m`: Run the middleware functionality.
+- `connector` or `c`: Run the connector functionality.
 
 Options:
 - `<host>`: ip to listen to
@@ -49,7 +49,7 @@ To run the receiver:
 ./PoW r -p 8081
 ```
 
-To run the middleware:
+To run the connector:
 
 ```bash
 ./PoW m 172.0.0.0

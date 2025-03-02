@@ -10,11 +10,11 @@ import (
 )
 
 type CLI struct {
-	Sender     bool
-	Receiver   bool
-	Middleware bool
-	BindAddr   string
-	BindPort   int
+	Sender    bool
+	Receiver  bool
+	Connector bool
+	BindAddr  string
+	BindPort  int
 }
 
 func NewCLI() *CLI {
@@ -37,8 +37,8 @@ func (c *CLI) ParseFlags() error {
 		c.Sender = true
 	case "r", "receiver":
 		c.Receiver = true
-	case "m", "middleware":
-		c.Middleware = true
+	case "c", "connector":
+		c.Connector = true
 	default:
 		flag.Usage()
 		return fmt.Errorf("unknown command: %s", args[0])
@@ -77,7 +77,7 @@ func (c *CLI) ConfigureProxy() (*proxy.ProxyService, error) {
 			return nil, fmt.Errorf("error creating receiver service: %v", err)
 		}
 		return proxy_service, nil
-	} else if c.Middleware {
+	} else if c.Connector {
 		fmt.Println("INFO: creating connector service")
 		proxy_service, err := proxy_factory.New("connector")
 		if err != nil {
@@ -85,7 +85,7 @@ func (c *CLI) ConfigureProxy() (*proxy.ProxyService, error) {
 		}
 		return proxy_service, nil
 	}
-	return nil, errors.New("please specify one of the following: --sender (-s), --receiver (-r), --middleware (-m)")
+	return nil, errors.New("please specify one of the following: --sender (-s), --receiver (-r), --connector (-c)")
 }
 
 func (c *CLI) Run() {
