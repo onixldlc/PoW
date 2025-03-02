@@ -64,18 +64,21 @@ func (c *CLI) ConfigureProxy() (*proxy.ProxyService, error) {
 	proxy_factory := proxy.ProxyFactory{}
 
 	if c.Sender {
+		fmt.Println("INFO: creating sender service")
 		proxy_service, err := proxy_factory.New("sender")
 		if err != nil {
 			return nil, fmt.Errorf("error creating sender service: %v", err)
 		}
 		return proxy_service, nil
 	} else if c.Receiver {
+		fmt.Println("INFO: creating receiver service")
 		proxy_service, err := proxy_factory.New("receiver")
 		if err != nil {
 			return nil, fmt.Errorf("error creating receiver service: %v", err)
 		}
 		return proxy_service, nil
 	} else if c.Middleware {
+		fmt.Println("INFO: creating connector service")
 		proxy_service, err := proxy_factory.New("connector")
 		if err != nil {
 			return nil, fmt.Errorf("error creating connector service: %v", err)
@@ -106,8 +109,6 @@ func (c *CLI) Run() {
 	if !isPort(c.BindPort) {
 		panic(fmt.Errorf("invalid port number: %d", c.BindPort))
 	}
-
-	fmt.Printf("Parsed flags: %+v\n", c)
 
 	service := *proxy_service
 	service.Run(ipAddr, c.BindPort)
