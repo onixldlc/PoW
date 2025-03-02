@@ -20,7 +20,7 @@ cd packet-over-websocket
 Then, build the project using Go:
 
 ```bash
-go build -o build/PoW ./
+go build -o build/ ./
 ```
 
 ## Usage
