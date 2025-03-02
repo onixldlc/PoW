@@ -35,6 +35,10 @@ func New() *WebSocketServer {
 	}
 }
 
+func (server *WebSocketServer) SetCallback(callback func(*WebSocketServer, []byte) error) {
+	server.callback = callback
+}
+
 func (server *WebSocketServer) StartEventHandler() {
 	for {
 		select {
