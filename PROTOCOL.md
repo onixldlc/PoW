@@ -6,6 +6,9 @@ just incase. as we don't want to send our packets to a random
 person
 
 ```
+sender <------(register)-------- connector -------(register)-------> receiver
+sender ------(authpubkey)------> connector <-----(authpubkey)------- receiver
+
 sender <----(authenticate)------ connector ------(authenticate)----> receiver
 sender ---(authenticate-ack)---> connector <---(authenticate-ack)--- receiver
 ```
