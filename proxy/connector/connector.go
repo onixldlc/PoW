@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-//go:embed index.html
+//go:embed web/index.html
 var IndexHtml string
 
 type ConnectorPage struct {
